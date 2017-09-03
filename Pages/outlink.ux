@@ -1,0 +1,65 @@
+<Page ux:Class="OutLink">
+  <Router ux:Dependency="router" />
+  <JavaScript File="outlink.js" />
+    <DockPanel HitTestMode="LocalBoundsAndChildren" Alignment="Top" Height="7%">
+      <Grid ColumnCount="24">
+        <DockPanel Column="0" ColumnSpan="4" Clicked="{goBack}">
+          <Button Alignment="Center">
+            <Image File="../Assets/back_arrow.png" Height="20" />
+          </Button>
+        </DockPanel>
+        <Text Clicked="{goBack}" Alignment="CenterLeft" Margin="0,3,0,0" Column="4" ColumnSpan="16" Value="{ShopName}" FontSize="18" />
+      </Grid>
+    </DockPanel>
+    <Panel ux:Class="LoadingBar" Width="0%" Height="2" Color="#bbe0bd" Alignment="TopLeft" />
+    <DockPanel Height="86%">
+      <Image ux:Name="img" Layer="Background" Height="40" File="../Assets/loading_clock.png" />
+      <NativeViewHost>
+        <LoadingBar Dock="Top" ux:Name="_loadingBar" />
+        <WebView Height="100%" ux:Name="myWebView" Url="{OutlinkUrl}">
+          <ProgressAnimation>
+            <Change _loadingBar.Width="100%" />
+          </ProgressAnimation>
+          <WhilePageLoading>
+            <Change OnLoadingText.Value="True"></Change>
+    			</WhilePageLoading>
+        </WebView>
+      </NativeViewHost>
+      <WhileTrue ux:Name="OnLoadingText">
+          <Spin Target="img" Frequency="1"/>
+      </WhileTrue>
+    </DockPanel>
+    <DockPanel Alignment="Bottom" Height="7%" Background="0,0,0,0.05">
+      <StackPanel Dock="Top" Height="1" Background="#c9c9c9" />
+      <Grid ColumnCount="4">
+        <Button Column="0">
+          <Image File="../Assets/webview_backward.png" Height="20">
+            <FileImageSource File="{LikeImage}" />
+          </Image>
+          <Clicked>
+            <GoBack TargetNode="myWebView" />
+          </Clicked>
+        </Button>
+        <Button Column="1" >
+          <Image File="../Assets/webview_forward.png" Height="20" />
+          <Clicked>
+            <GoForward TargetNode="myWebView" />
+          </Clicked>
+        </Button>
+        <Panel HitTestMode="LocalBoundsAndChildren" ux:Name="GoWeb" Column="2" Clicked="{BrowserGo}">
+          <Image ux:Name="GoWebImg" File="../Assets/web-go.png" Height="30" />
+        </Panel>
+        <Panel HitTestMode="LocalBoundsAndChildren" Column="3"  Clicked="{LikeitemToggle}">
+          <Image ux:Name="likeitem" File="{LikeImage}" Height="35" />
+          <Clicked>
+            <RaiseUserEvent EventName="myGlobalEvent" />
+          </Clicked>
+          <!-- <Clicked>
+            <Callback Handler="{LikeitemToggle}"/>
+          </Clicked> -->
+          <!-- <Image ux:Name="likeitem" File="../Assets/likeitem.png" Height="33" /> -->
+        </Panel>
+
+      </Grid>
+    </DockPanel>
+</Page>

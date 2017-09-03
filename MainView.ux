@@ -1,0 +1,11 @@
+<App Background="#FFFFFF">
+  <UserEvent ux:Name="myGlobalEvent" />
+  <Router ux:Name="router" />
+  <ClientPanel>
+    <Navigator DefaultPath="Splash">
+      <Splash ux:Template="Splash" router="router" />
+      <HomePage ux:Template="home" router="router" />
+      <OutLink ux:Template="outlink" router="router" />
+    </Navigator>
+  </ClientPanel>
+</App>

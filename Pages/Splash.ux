@@ -1,0 +1,14 @@
+<Page ux:Class="Splash">
+  <iOS.StatusBarConfig Style="Light" IsVisible="False" />
+  <Router ux:Dependency="router" />
+  <DockPanel ClipToBounds="true">
+    <JavaScript File="Splash.js" />
+    <Grid RowCount="1">
+      <StackPanel Alignment="VerticalCenter">
+        <Image File="../Assets/mariazu-heart.png" Height="30"/>
+        <Text Padding="0,4" FontSize="12" Alignment="Center" Color="#a7c9a9">MARIAZU</Text>
+        <Text Alignment="HorizontalCenter" Opacity=".6" >더 아름다운 다이닝을 검색하다</Text>
+      </StackPanel>
+    </Grid>
+  </DockPanel>
+</Page>

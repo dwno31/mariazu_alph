@@ -1,0 +1,29 @@
+{
+  "RootNamespace":"maraizu.App",
+  "Title":"마리아주",
+	"Publisher": "Mariazu Lab",
+  "Icon":"Assets/mariazu-icon.png",
+  "Packages": [
+    "Fuse",
+    "FuseJS",
+    "Fuse.Launcher",
+    "Uno.Permissions"
+  ],
+  "Includes": [
+    "*",
+    "Pages/*.js:Bundle",
+    "Modules/*.js:Bundle",
+    "Assets/*.jpg:Bundle",
+    "Assets/likeitem.png:Bundle",
+    "Assets/likeitem-touch.png:Bundle",
+    "Assets/*.png:Bundle",
+    "*.uno"
+  ],
+  "Mobile": {
+  "UriScheme": "gomariazuapp",
+  "Orientations": "Portrait"
+  },
+  "iOS": {
+  "DevelopmentTeam": "NK64M7B54U"
+  }
+}

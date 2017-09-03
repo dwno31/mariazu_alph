@@ -1,0 +1,14 @@
+<Page ux:Class="HomePage" >
+  <iOS.StatusBarConfig Style="Dark" IsVisible="True" />
+  <JavaScript File="home.js" />
+  <Router ux:Dependency="router" />
+  <Image Layer="Background" ux:Name="loading_main" File="../Assets/loading_clock.png" Height="30" Alignment="Center" />
+
+  <NativeViewHost>
+    <WebView Height="100%" ux:Name="MainWebview" Url="{ParentUrl}" URISchemeHandler="{WebEvent}" ZoomEnabled="false">
+      <OnUserEvent EventName="myGlobalEvent">
+        <EvaluateJS JavaScript="{InjectJs}" />
+      </OnUserEvent>
+    </WebView>
+  </NativeViewHost>
+</Page>

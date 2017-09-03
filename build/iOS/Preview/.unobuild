@@ -1,0 +1,4 @@
+$: 1015963222
+BuildCommand: build.sh
+RunCommand: run.sh
+Product: build/Release-iphoneos/mariazu_alpha.app/mariazu_alpha
